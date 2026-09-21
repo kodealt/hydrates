@@ -140,16 +140,20 @@ class Elements:
     }
 
     def __init__(self):
-        self.__atomic = Elements.__atmos
-        self.__MOL =  {sym: row[0] for row, sym in self.__atomic.items()}
-        self.__names = {sym: row[1] for row, sym in self.__atomic.items()}
-        self.__name_sym = {row[1]: sym for row, sym in self.__atomic.items()}
-        self.__series = {sym: row[2] for row, sym in self.__atomic.items()}
-        self.__nobleConfig = {sym: row[3] for row, sym in self.__atomic.items()}
-        self.__electroNegativity = {sym: row[4] for row, sym in self.__atomic.items()}
-        self.__ionic = {sym: row[5] for row, sym in self.__atomic.items()}
-        self.__stateAt25c =  {sym: row[6] for row, sym in self.__atomic.items()}
-        self.sym = self.__atomic.keys()
+            self.__atomic = Elements.__atmos
+
+            self.__MOL = {sym: row[0] for sym, row in self.__atomic.items()}
+            self.__names = {sym: row[1] for sym, row in self.__atomic.items()}
+            self.__name_sym = {row[1]: sym for sym, row in self.__atomic.items()}
+            self.__series = {sym: row[2] for sym, row in self.__atomic.items()}
+            self.__nobleConfig = {sym: row[3] for sym, row in self.__atomic.items()}
+            self.__electroNegativity = {sym: row[4] for sym, row in self.__atomic.items()}
+            self.__ionic = {sym: row[5] for sym, row in self.__atomic.items()}
+            self.__stateAt25c = {sym: row[6] for sym, row in self.__atomic.items()}
+
+            self.sym = self.__atomic.keys()
+
+
     # while i use variables that correspond to what the function is referencing,
     # i am pulling the "line" of elements rather than directly THAT specific property
     def getMOL(self, e):
