@@ -20,13 +20,23 @@ def splitElements(compound): # return a list
             except:
                 continue
         else:
+            if isInt(j): 
+                continue
+            k = i
             tmp += j
+            try:
+                while isInt(compound[k]):
+                    tmp += compound[k]
+                    k+=1
+            except:
+                continue
             soloElements.append(tmp)
             tmp = ""
 
     if len(tmp) != 0:
         soloElements.append(tmp)
         
+    print(soloElements)
     return soloElements
         
 
@@ -51,7 +61,7 @@ def countElements(compound):
         except:
             continue
 
-        counts[:u[c]] = int(u[c:]) if len(u[c:]) != 0 else 0
+        counts[u[:c]] = int(u[c:]) if len(u[c:]) != 0 else 0
 
 
         # if isInt(u[-1*c:]):
@@ -69,7 +79,7 @@ def balance(eq):
     left = [k.strip() for k in left.split('+')]
     right = [k.strip() for k in right.split('+')]
 
-    print(left)
+    # print(left)
     # print(right)
 
     counted_L = [countElements(l) for l in left]
